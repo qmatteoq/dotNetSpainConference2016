@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{D7C22DB8-C626-46B0-8D14-7EBA750512EC}</ProjectGuid>
+    <ProjectGuid>{DCBC1740-6177-4CD4-A89D-C6D326F4F513}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FeedReader</RootNamespace>
@@ -115,6 +115,7 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="VoiceCommands.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -127,9 +128,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FeedReader.Parser\FeedReader.Parser.csproj">
-      <Project>{d82cee54-b89d-4e02-9c52-d2ccac9e3773}</Project>
-      <Name>FeedReader.Parser</Name>
+    <ProjectReference Include="..\FeedReader.Cortana\FeedReader.Cortana.csproj">
+      <Project>{0a2efad9-9daf-4d63-a2aa-09c99f04d4dc}</Project>
+      <Name>FeedReader.Cortana</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FeedReader.Services\FeedReader.Services.csproj">
+      <Project>{8AB8D754-A2A3-44DA-B46D-31E171F43FD2}</Project>
+      <Name>FeedReader.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

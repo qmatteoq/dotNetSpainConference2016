@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="en-us" Name="QwerteeShirts-en">
+    <CommandPrefix> FeedReader </CommandPrefix>
+    <Example> Show me the latest news </Example>
+
+    <Command Name="ShowLatestNews">
+      <Example> Show me the latest news </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> show [me] the [latest] news </ListenFor>
+      <Feedback> Showing the latest news </Feedback>
+      <VoiceCommandService Target="FeedReaderVoiceCommandService"/>
+    </Command>
+
+  </CommandSet>
+</VoiceCommands>

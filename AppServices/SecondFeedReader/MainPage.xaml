@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="FeedReader.MainPage"
+    x:Class="SecondFeedReader.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:FeedReader"
+    xmlns:local="using:SecondFeedReader"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -13,8 +13,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
-            <TextBlock Text="An awesome Feed Reader" Style="{StaticResource HeaderTextBlockStyle}"
+            
+            <TextBlock Text="A more awesome Feed Reader" Style="{StaticResource HeaderTextBlockStyle}"
                        Grid.Row="0" Margin="12" />
 
             <ListView x:Name="News" Grid.Row="1">
