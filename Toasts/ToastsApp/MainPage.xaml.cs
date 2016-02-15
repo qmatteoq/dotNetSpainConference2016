@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using NotificationsExtensions.Toasts;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -74,6 +75,51 @@ namespace ToastsApp
                     builder.Register();
                 }
             }
+        }
+
+        private void OnSendNotificationWithExtension(object sender, RoutedEventArgs e)
+        {
+            ToastVisual visual = new ToastVisual
+            {
+                AppLogoOverride = new ToastAppLogo
+                {
+                    Crop = ToastImageCrop.None,
+                    Source = new ToastImageSource("ms-appx:///Assets/MicrosoftLogo.png")
+                },
+                TitleText = new ToastText
+                {
+                    Text = "DotNet Spain Conference"
+                },
+                BodyTextLine1 = new ToastText
+                {
+                    Text = "How much do you like my session ?"
+                }
+            };
+
+            ToastSelectionBox selection = new ToastSelectionBox("rating");
+            selection.Items.Add(new ToastSelectionBoxItem("1", "1 (Not very much)"));
+            selection.Items.Add(new ToastSelectionBoxItem("2", "2"));
+            selection.Items.Add(new ToastSelectionBoxItem("3", "3"));
+            selection.Items.Add(new ToastSelectionBoxItem("4", "4"));
+            selection.Items.Add(new ToastSelectionBoxItem("5", "5 (A lot!)"));
+
+            ToastButton button = new ToastButton("Vote", "vote");
+            button.ActivationType = ToastActivationType.Background;
+
+            ToastContent toast = new ToastContent
+            {
+                Visual = visual,
+                ActivationType = ToastActivationType.Background,
+                Actions = new ToastActionsCustom
+                {
+                    Inputs = {selection},
+                    Buttons = { button }
+                }
+            };
+
+            XmlDocument doc = toast.GetXml();
+            ToastNotification notification = new ToastNotification(doc);
+            ToastNotificationManager.CreateToastNotifier().Show(notification);
         }
     }
 }

@@ -17,8 +17,13 @@
             <TextBlock Text="Rate the session!" Style="{StaticResource HeaderTextBlockStyle}"
                        Grid.Row="0" Margin="12" />
 
-            <Button Click="OnSendNotification" Content="Send notification"
-                    Margin="12" Grid.Row="1"/>
+            <StackPanel Margin="12" Grid.Row="1">
+                <Button Click="OnSendNotification" Content="Send notification"
+                        />
+
+                <Button Click="OnSendNotificationWithExtension" 
+                        Content="Send notification with Notifications Extensions library" />
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
